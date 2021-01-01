@@ -260,48 +260,6 @@ class IntroductionScreenState extends State<IntroductionScreen> {
               onPageChanged: widget.onChange,
             ),
           ),
-          Positioned(
-            bottom: widget.controlsMargin.bottom,
-            left: widget.controlsMargin.left,
-            right: widget.controlsMargin.right,
-            child: SafeArea(
-              child: Row(
-                children: [
-                  Expanded(
-                    flex: widget.skipFlex,
-                    child: isSkipBtn
-                        ? skipBtn
-                        : Opacity(opacity: 0.0, child: skipBtn),
-                  ),
-                  Expanded(
-                    flex: widget.dotsFlex,
-                    child: Center(
-                      child: widget.isProgress
-                          ? DotsIndicator(
-                              dotsCount: widget.pages != null
-                                  ? widget.pages.length
-                                  : widget.rawPages.length,
-                              position: _currentPage,
-                              decorator: widget.dotsDecorator,
-                              onTap: widget.isProgressTap && !widget.freeze
-                                  ? (pos) => animateScroll(pos.toInt())
-                                  : null,
-                            )
-                          : const SizedBox(),
-                    ),
-                  ),
-                  Expanded(
-                    flex: widget.nextFlex,
-                    child: isLastPage
-                        ? doneBtn
-                        : widget.showNextButton
-                            ? nextBtn
-                            : Opacity(opacity: 0.0, child: nextBtn),
-                  ),
-                ],
-              ),
-            ),
-          ),
         ],
       ),
     );
