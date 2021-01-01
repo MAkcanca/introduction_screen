@@ -260,6 +260,25 @@ class IntroductionScreenState extends State<IntroductionScreen> {
               onPageChanged: widget.onChange,
             ),
           ),
+          Positioned(
+            bottom: widget.controlsMargin.bottom,
+            left: widget.controlsMargin.left,
+            right: widget.controlsMargin.right,
+            child: SafeArea(
+              child: Row(
+                children: [
+                  Expanded(
+                    flex: widget.nextFlex,
+                    child: isLastPage
+                        ? doneBtn
+                        : widget.showNextButton
+                            ? nextBtn
+                            : Opacity(opacity: 0.0, child: nextBtn),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
