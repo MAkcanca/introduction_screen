@@ -269,9 +269,7 @@ class IntroductionScreenState extends State<IntroductionScreen> {
                 children: [
                   Expanded(
                     flex: widget.nextFlex,
-                    child: isLastPage
-                        ? doneBtn
-                        : widget.showNextButton
+                    child: widget.showNextButton
                             ? nextBtn
                             : Opacity(opacity: 0.0, child: nextBtn),
                   ),
